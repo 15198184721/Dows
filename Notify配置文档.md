@@ -9,6 +9,11 @@ refreshInterval : 300               # 配置自动刷新时间(单位：秒)，�
 redPackageMinAmount : 0.5           # 通知红包开出的红包最小金额(单位：元)
 redPackageMaxAmount : 2             # 通知红包开出的红包最大金额(单位：元)
 redPackageDoubleProportion : 2      # 翻倍领取的比例(例如：1.1上浮10%，2 = 两倍)
+conditionsPools :                   # 当前配合中的【锚定池】,就是提供给条件池使用的锚定池(所有锚定值获取方法池),注意：从0开始,第1个实际应该写成：0
+      - executioMethod : com.AA#CA  # ,要求：(方法的要求：返回类型(int),参数：无)
+      - executioMethod : com.AA#CB  # ,要求：(方法的要求：返回类型(int),参数：无)
+      - executioMethod : com.AA#CC  # ,要求：(方法的要求：返回类型(int),参数：无)
+      - executioMethod : com.AA#CD  # ,要求：(方法的要求：返回类型(int),参数：无)
 notifyConfigs :                     # 通知的数据配置(是一个列表。可配置多个条件的类型)
   - id : 0                                    # 分类的id(所有分类中必须唯一，否则可能影响前端对分类最大的统计和排异显示判断)
     isOpen : true                             # 是否这个通知是否生效 (true:通知生效(默认)，false:关闭通知)
@@ -18,8 +23,8 @@ notifyConfigs :                     # 通知的数据配置(是一个列表。�
     dayLotteryCodeCount : 0                   # 条件：当日已获取抽奖码的个数，如果<0:表示此条件一定满足,可作为默认项配置 (单位：个)
     judgeConditions :                         # 新条件集合,可配置多个条件组合
       - condition : (<1,3,5-8)&               # 组合条件1:需要设置的条件,各个条件之间使用","分隔,区间值使用"-"分隔,单数字的支持符号:">"、"<"，如果没有写明则是默认必须等于值
-    conditionalProcess :                      # 对应[judgeConditions]字段指定位置条件的锚定值(当前值)的集合
-      - executioMethod : com.AA#getNumber()   # 对应[judgeConditions]位置'0'(组合条件1)的锚定值的获取方法,要求：(方法的要求：返回类型(int),参数：无)
+      - condition : (<1,3,5-8)&               # 组合条件1:需要设置的条件,各个条件之间使用","分隔,区间值使用"-"分隔,单数字的支持符号:">"、"<"，如果没有写明则是默认必须等于值
+    anchorCollection : 0,3                    # 使用锚定池中的：0(CA),1(CD),注：(0,3 分别和 judgeConditions 中条件一一对应,更多条件只要一一对应即可)
     uiTemplate :                              # 以上条件下的UI模板配置，参数看考:参数说明
       # - 此处字段参考[UI模板相关配置参数]，是一个列表。可配置多个UI模板
 ```

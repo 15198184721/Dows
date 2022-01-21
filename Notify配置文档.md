@@ -56,8 +56,8 @@ notifyConfigs :                     # 通知的数据配置(是一个列表。�
           
       【示例】
         conditionalProcess :                                    # 条件集合的相关锚定值
-          - executioMethod :  com.aaa.bb#getCurrentNumber()     # 【条件1】的锚定值获取方法
-          - executioMethod :  com.aaa.bb#getCurrentNumber2()    # 【条件2】的锚定值获取方法
+          - executioMethod :  com.aaa.bb#getCurrentNumber     # 【条件1】的锚定值获取方法
+          - executioMethod :  com.aaa.bb#getCurrentNumber2    # 【条件2】的锚定值获取方法
 
 #### --------------------【UI模板相关的配置说明】--------------------
 #### 多UI模板参数冲突展示规则： 
